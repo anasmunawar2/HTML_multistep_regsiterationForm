@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	background: rgb(127,121,233);
+background: linear-gradient(90deg, rgba(127,121,233,1) 0%, rgba(214,20,20,0) 100%);
+}
+
+/*progress bar*/
+
+.progressbar{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem 0 4rem;
+}
+
+.progressbar::before, .progress{
+	content: "";
+	height: 4px;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+	background-color: #5148f5;
+	counter-reset: step;
+	z-index: -1;
+}
+
+.progress{
+	background-color: #1408ee;
+	width: 0%;
+	transition: .3s;
+}
+
+.progress-step{
+	width: 35px;
+	height: 35px;
+	background-color: #1408ee;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.progress-step::before{
+	counter-increment: step;
+	content:  counter(step);
+
+}
+
+.progress-step::after{
+	content: attr(data-title);
+	position: absolute;
+	top: calc(100% + 0.75rem);
+	font-size: 0.85rem;
+}
+
+.progress-step-active{
+	background-color: #5148f5;
+	color: white;
+}
+
+
+
+/* Form styling*/
+
+.form{
+	width: clamp(320px, 30%, 430px);
+	margin: 0 auto;
+	border: 1px solid #1408ee;
+	border-radius: 0.35rem;
+	padding: 1.5rem;	
+}
+
+.input-group{
+	margin: 2rem 0;
+}
+
+.form-step{
+	display: none;
+}
+
+.form-step-active{
+	display: block;
+}
+
+
+/*Button styling*/
+
+.btn{
+	padding: 0.75rem;
+	display: block;
+	text-decoration: none;
+	background-color: #1408ee;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 0.25rem;
+	color: white;
+}
+
+.btn:hover{
+	box-shadow: 0 0 0 2px #fff, 0 0 0 3px #1408ee;
+}
+
+.btns-group{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 	1.5rem;
+}
+
+/*Applying Global Styling*/
+input{
+	display: block;
+	width: 100%;
+	padding: 0.75em;
+	border-radius: .25rem;
+	border: 1px solid #ccc;
+}
+
+label{
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.width-50{
+	width: 50%;	
+}
+.ml-auto{
+	margin-left: auto;
+}
+.text-center{
+	text-align: center;
+}
